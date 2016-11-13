@@ -1,0 +1,27 @@
+/*
+ basic styles
+ */
+
+
+ .details input{
+     border: none;
+     text-align: center;
+     box-shadow: none;
+ }
+
+  .details input#name{
+      font-size: 3rem;
+  }
+  .details input#type{
+    border: 1px solid;
+  }
+
+ .details label[for=name]{
+    display:  none;
+ }
+
+.delete-contact {
+  position: absolute;
+  top: 14vh;
+  right: 6vw;
+}
