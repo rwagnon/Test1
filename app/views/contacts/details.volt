@@ -33,7 +33,9 @@
 
 #}
 
-{{ form("contacts/createrelationship", ['class': 'form-inline'])  }}
+
+{{ form("contacts/createrelationship", ['class': 'form-inline']) }}
+
 
     <fieldset  class="form-inline">
 
@@ -51,5 +53,7 @@
        {{ submit_button("Add Relationship", "class": "btn btn-success") }}
      </div>
     </fieldset>
+
+
 
 </form>

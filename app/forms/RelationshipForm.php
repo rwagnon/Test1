@@ -14,25 +14,13 @@ class RelationshipForm extends Form
     /**
      * Initialize the products form
      */
-    public function initialize( $entity = null, $options = array())
+    public function initialize($entity = null, $options = array())
     {
-		// Post the contact id of the contact that will get the new contact relationship.  This will use the value tagged in the controller.
-      $this->add(new Hidden('contact1_id', null ));
-		
-		// Only show contacts for the current User.
-		$filter = 'user_id = ' . $options['user_id']; 
-		// Remove the current contact from the available relationship contacts.
-		if ($options['contact1_id'] != '') {
-			$filter .= ' and id != ' . $options['contact1_id'];
-		}
-		// Remove previously associated contacts from the available relationship contacts.
-		if (!empty($options['existingContact2_ids'])) { 
-			foreach ( $options['existingContact2_ids'] as $relID) {
-				$filter .= ' and id != ' . $relID;
-			}
-		}
-      $contactname = new Select('contact2_id', Contacts::find($filter), array(
-          'using'      => array( 'id', 'name'),
+
+      $this->add(new Hidden("id"));
+
+      $contactname = new Select('name', Contacts::find(), array(
+          'using'      => array( 'name', 'name'),
           'useEmpty'   => false,
           'emptyText'  => '...',
           'emptyValue' => 'name'

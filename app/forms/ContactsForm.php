@@ -19,8 +19,7 @@ class ContactsForm extends Form
      */
     public function initialize($entity = null, $options = array())
     {
-		// Post the user_id of the current user. This will use the value tagged in the controller.
-        $this->add(new Hidden('user_id', $this->session->get('auth')['id'] ));
+
 
         if (!isset($options['edit'])) {
             $element = new Text("id");

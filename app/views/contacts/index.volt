@@ -1,5 +1,5 @@
-{{ content() }}
 
+{{ content() }}
 <br />
 <div align="right">
     {{ link_to("contacts/new", "Create Contact", "class": "btn btn-primary") }}
@@ -13,13 +13,9 @@
 <fieldset class="pull-right">
 
 <div class="form-group">
-    <label for="search" class="control-label">Search: </label>
+    <label for="name" class="control-label">Search: </label>
     <div class="controls">
-        <input id="name" name="name" type="text">
-        <input id="address" name="search[address]"  type="Hidden">
-        <input id="telephone" name="search[telephone]"  type="Hidden">
-        <input id="email" name="search[email]"  type="Hidden">
-        <input id="birthday" name="search[birthday]"  type="Hidden">
+        <input id="name" name="name"  type="text">
         </div>
 </div>
 
@@ -42,6 +38,7 @@
 <table class="table table-bordered table-striped" align="center">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -53,6 +50,10 @@
     <tbody>
         <tr>
             <td>
+                {{ contact.id }}
+            </td>
+            <td>
+                {{birthday_date}}
                 {% if  birthday_date == contact.birthday %}
                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                 {% endif %}
@@ -76,10 +77,10 @@
         </td>
             <td colspan="7" align="right">
                 <div class="btn-group">
-                    {{ link_to("contacts/index", '<i class="icon-fast-backward"></i> First', "class": "btn btn-default") }}
-                    {{ link_to("contacts/index?page=" ~ page.before, '<i class="icon-step-backward"></i> Previous', "class": "btn btn-default") }}
-                    {{ link_to("contacts/index?page=" ~ page.next, '<i class="icon-step-forward"></i> Next', "class": "btn btn-default") }}
-                    {{ link_to("contacts/index?page=" ~ page.last, '<i class="icon-fast-forward"></i> Last', "class": "btn btn-default") }}
+                    {{ link_to("contacts/search", '<i class="icon-fast-backward"></i> First', "class": "btn btn-default") }}
+                    {{ link_to("contacts/search?page=" ~ page.before, '<i class="icon-step-backward"></i> Previous', "class": "btn btn-default") }}
+                    {{ link_to("contacts/search?page=" ~ page.next, '<i class="icon-step-forward"></i> Next', "class": "btn btn-default") }}
+                    {{ link_to("contacts/search?page=" ~ page.last, '<i class="icon-fast-forward"></i> Last', "class": "btn btn-default") }}
                     <span class="help-inline">{{ page.current }}/{{ page.total_pages }}</span>
                 </div>
             </td>
